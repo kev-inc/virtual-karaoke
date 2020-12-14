@@ -1,0 +1,56 @@
+<!--
+  Generated template for the ControlPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Room code: {{userRoomCode}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <button ion-button block clear (click)="openSearchModal()">Search songs</button>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-list-header color="light" text-left>
+        SONG QUEUE
+      </ion-list-header>
+      <ion-item *ngFor="let item of queue" no-lines>
+        <ion-avatar item-start>
+          <img [src]=item[1].videoThumbnail>
+        </ion-avatar>
+        {{item[1].videoTitle}}<br/>
+        <small>Selected by: {{item[1].userSelected}}</small>
+      </ion-item>
+    </ion-list>
+  </ion-card>  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col col-10>
+        <ion-item no-lines style="background-color: transparent">
+          <ion-avatar item-start>
+            <img [src]=nowPlaying.videoThumbnail *ngIf="whenCurrentIsEmpty(nowPlaying.videoThumbnail)">
+          </ion-avatar>
+          Now playing:<br>
+          <p style="overflow: hidden;">{{nowPlaying.videoTitle}}<br/>
+          <small>Selected by: {{nowPlaying.userSelected}}</small></p>
+          <!-- <marquee behavior="scroll" direction="left"></marquee> -->
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear large float-end><ion-icon name="skip-forward" (click)="nextSong()"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Search songs</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- Searchbar -->
+  <div id="search-form">
+    <form (ngSubmit)="findVideos($event)">
+      <ion-item no-padding>
+        <ion-input type="text" [(ngModel)]="search.params" name="search" placeholder="Search videos" autofocus></ion-input>
+        <button type="submit" ion-button icon-only clear item-right>
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-item>
+    </form>
+  </div>
+
+
+
+  <!-- Results -->
+  <div id="results">
+    <div class="card-background-page">
+      <ion-card *ngFor="let video of videos.items" (click)="queueSong(video)">
+        <ion-row>
+          <ion-col col-4>
+            <img src="{{video.snippet.thumbnails.high.url}}">
+          </ion-col>
+          <ion-col col-8>
+            {{video.snippet.title}}
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+
+</ion-content>

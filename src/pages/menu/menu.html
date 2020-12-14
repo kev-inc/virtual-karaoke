@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Virtual KBox</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
+        Welcome to Virtual KBox
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
+        <ion-item no-padding>
+          <ion-input type="number" placeholder="Room code" text-center [(ngModel)]="userRoomCode" maxlength="4"></ion-input>
+        </ion-item>
+
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Nickname" text-center [(ngModel)]="nickname"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
+        <button ion-button large block (click)="joinRoom()">Join room</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!-- <ion-col col-5><hr /></ion-col> -->
+      <ion-col col-2 offset-5>or</ion-col>
+      <!-- <ion-col col-5><hr /></ion-col> -->
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
+        <button ion-button large block (click)="createNewRoom()">Create new room</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4>
+        <p>
+          <strong><u>How to use:</u></strong><br><br>
+          <strong>Starting a new session: </strong><br>Click on create new room to start a new session. This device should be the one which the videos will be played.<br><br>
+          <strong>Joining a session: </strong><br>Enter the 4 digit code of the room to join that room. 
+          
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
